@@ -1,0 +1,36 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:cli="http://client.cds.med.va.gov">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <cli:readClinicalData1>
+         <in0>SmartFormRead1</in0>
+         <in1><![CDATA[ 
+         	<?xml version="1.0" encoding="UTF-8"?>
+		<filter:filter vhimVersion="Vhim_4_00"
+		    xsi:schemaLocation="Filter Smart_Form_Single_Patient_All_Data_Filter.xsd" xmlns:filter="Filter"
+		    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+		    <filterId>SMART_FORM_SINGLE_PATIENT_ALL_DATA_FILTER</filterId>
+		    <clientName>PNCS</clientName>
+		    <clientRequestInitiationTime>2001-12-17T09:30:47Z</clientRequestInitiationTime>
+		    <patients>
+		        <resolvedIdentifiers>
+		            <assigningAuthority>USVHA</assigningAuthority>
+		            <assigningFacility>552</assigningFacility>
+		            <identity>7170713</identity>
+		        </resolvedIdentifiers>
+		    </patients>
+		    <entryPointFilter queryName="ID_1">
+		        <domainEntryPoint>SmartFormDocument</domainEntryPoint>
+		        <startDate>2012-07-01</startDate>
+		        <endDate>2013-12-31</endDate>
+		        <queryTimeoutSeconds>60</queryTimeoutSeconds>
+		        <otherQueryParameters>
+		            <documentNativeId>33</documentNativeId>
+		        </otherQueryParameters>
+		    </entryPointFilter>
+		</filter:filter>
+         ]]></in1>
+         <in2>SMART_FORM_SINGLE_PATIENT_ALL_DATA_FILTER</in2>
+         <in3>6d96c7c0-96a3-4c4a-8db4-b07c69ea8cca</in3>
+      </cli:readClinicalData1>
+   </soapenv:Body>
+</soapenv:Envelope>

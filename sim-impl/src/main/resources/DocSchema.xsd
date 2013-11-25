@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+            xmlns:jxb="http://java.sun.com/xml/ns/jaxb"
+            jxb:version="1.0"
+            elementFormDefault="qualified">
+    <xs:element name="document">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="subjective"/>
+                <xs:element ref="objective"/>
+                <xs:element ref="assessment"/>
+                <xs:element ref="plan"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="subjective">
+        <xs:complexType/>
+    </xs:element>
+    <xs:element name="objective">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element maxOccurs="unbounded" ref="assertion"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="assertion">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="assertionUuid"/>
+                <xs:element ref="pncs"/>
+                <xs:element ref="discernable"/>
+                <xs:element ref="qualifier"/>
+                <xs:element ref="value"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="assertionUuid" type="xs:integer"/>
+    <xs:element name="pncs">
+        <xs:complexType>
+            <xs:attribute name="id" use="required" type="xs:integer"/>
+            <xs:attribute name="name" use="required"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="discernable">
+        <xs:complexType>
+            <xs:complexContent>
+                <xs:extension base="concept">
+                    <xs:sequence>
+                        <xs:element minOccurs="0" ref="rel"/>
+                    </xs:sequence>
+                </xs:extension>
+            </xs:complexContent>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="rel">
+        <xs:complexType>
+            <xs:complexContent>
+                <xs:extension base="concept">
+                    <xs:attribute name="sctid" use="required" type="xs:integer"/>
+                    <xs:attribute name="type" use="required" type="xs:NCName"/>
+                </xs:extension>
+            </xs:complexContent>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="qualifier" type="concept"/>
+    <xs:element name="value" type="concept"/>
+    <xs:element name="assessment">
+        <xs:complexType/>
+    </xs:element>
+    <xs:element name="plan">
+        <xs:complexType/>
+    </xs:element>
+    <xs:complexType name="concept">
+        <xs:annotation>
+            <xs:appinfo>
+                <jxb:class name="con">
+                    <jxb:javadoc>
+                        A &lt;b>concept&lt;/b> consists of...
+                    </jxb:javadoc>
+                </jxb:class>
+            </xs:appinfo>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element ref="concept"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="concept">
+        <xs:complexType>
+            <xs:attribute name="desc" use="required"/>
+            <xs:attribute name="sctid" use="required" type="xs:integer"/>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>

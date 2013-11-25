@@ -1,0 +1,35 @@
+/* 
+    Document   : gov.va.ohi.sim.fx.arena
+    Created on : Oct 28, 2012, 1:25:12 PM
+    Author     : kec
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+root { 
+    display: block;
+    master-color: grey;
+    -fx-background-color: derive(master-color, 70%);
+    -fx-font-size: 14px;
+}
+
+.button{
+    -fx-text-fill: rgb(49, 89, 23);
+    -fx-border-color: rgb(49, 89, 23);
+    -fx-border-radius: 0;
+    -fx-padding: 0 0 0 0;
+}
+
+#expandButton {
+    -fx-border-color: transparent;
+    -fx-border-width: 0px;
+    -fx-background-color: derive(master-color, -90%);
+    -fx-graphic: url("../fugue/16x16/icons-shadowless/toggle.png");
+}
+
+#expandButton:selected {
+    -fx-border-color: orange;
+    -fx-border-width: 0px;
+    -fx-background-color: derive(master-color, -90%);
+    -fx-graphic: url("../fugue/16x16/icons-shadowless/toggle-expand.png");
+}

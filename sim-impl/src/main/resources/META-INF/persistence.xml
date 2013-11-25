@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.0" xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
+  <persistence-unit name="gov.va.demo_nb-sim-demo-sample_nbm_1.0-SNAPSHOTPU" transaction-type="RESOURCE_LOCAL">
+    <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+    <class>gov.va.demo.nb.sim.jpa.Expressions</class>
+    <class>gov.va.demo.nb.sim.jpa.Intervals</class>
+    <class>gov.va.demo.nb.sim.jpa.Documents</class>
+    <class>gov.va.demo.nb.sim.jpa.Assertions</class>
+    <class>gov.va.demo.nb.sim.jpa.Persons</class>
+    <class>gov.va.demo.nb.sim.jpa.PncsLegoMap</class>
+    <properties>
+      <property name="javax.persistence.jdbc.url" value="jdbc:derby:edd-store;create=false"/>
+      <property name="javax.persistence.jdbc.password" value="imhere"/>
+
+      <property name="javax.persistence.jdbc.driver" value="org.apache.derby.jdbc.EmbeddedDriver"/>
+<!--      <property name="javax.persistence.jdbc.driver" value="org.apache.derby.jdbc.ClientDriver"/>-->
+      <property name="javax.persistence.jdbc.user" value="kec"/>
+    </properties>
+  </persistence-unit>
+  <persistence-unit name="gov.va.demo_nb-sim-demo-sample_nbm_1.0-SNAPSHOTPU2" transaction-type="RESOURCE_LOCAL">
+    <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+    <properties>
+      <property name="javax.persistence.jdbc.url" value="jdbc:derby:edd-store;create=false"/>
+      <property name="javax.persistence.jdbc.driver" value="org.apache.derby.jdbc.EmbeddedDriver"/>
+<!--      <property name="javax.persistence.jdbc.url" value="jdbc:derby://localhost:1527/edd-store"/>-->
+      <property name="javax.persistence.jdbc.password" value="imhere"/>
+<!--      <property name="javax.persistence.jdbc.driver" value="org.apache.derby.jdbc.ClientDriver"/>
+-->      <property name="javax.persistence.jdbc.user" value="kec"/>
+      <property name="eclipselink.ddl-generation" value="drop-and-create-tables"/>
+    </properties>
+  </persistence-unit>
+</persistence>
